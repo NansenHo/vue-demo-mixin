@@ -1,12 +1,41 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <Child1 v-if="child1Visible"/>
+    <button @click="child1Visible = false">x1</button>
+    <Child2/>
+    <button>x2</button>
+    <Child3/>
+    <button>x3</button>
+    <Child4/>
+    <button>x4</button>
+    <Child5/>
+    <button>x5</button>
   </div>
 </template>
+
+<script>
+import Child1 from "./components/Child1"
+import Child2 from "./components/Child2"
+import Child3 from "./components/Child3"
+import Child4 from "./components/Child4"
+import Child5 from "./components/Child5"
+
+export default {
+  name: "App",
+  date() {
+    return {
+      child1Visible: true
+    }
+  },
+  components: {
+    Child1,
+    Child2,
+    Child3,
+    Child4,
+    Child5
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
